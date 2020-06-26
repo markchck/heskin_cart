@@ -8,13 +8,17 @@
   </nav>
   <div class="row mt-4">
     <div class="col-6">
-      <img src="<%= url_for(@pack.image) %>" class="img-fluid">
+      <% if @pack.image.attached? %>
+        <img src="<%= url_for(@pack.image) %>" class="img-fluid">
+      <% else %>
+        <img src="http://via.placeholder.com/640x360?text=No+Image" alt="" class="img-fluid">
+      <% end %>
     </div>
     <div class="col-6">
-      <p><%= @pack.product_name %></p>
-      <hr>
+      <h2><%= @pack.product_name %></h2>
       <p><%= @pack.desc %></p>
       <hr>
+      <h5>설명</h5>
       <p><%= @pack.company_name %></p>
     </div>
   </div>
