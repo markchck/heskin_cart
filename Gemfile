@@ -7,6 +7,8 @@ gem "devise"
 gem "activeadmin"
 gem "bootstrap", "~> 4.5.0"
 gem "jquery-rails"
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'pry-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 5.2.3"

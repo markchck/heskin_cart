@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_020602) do
+ActiveRecord::Schema.define(version: 2020_06_26_052506) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -59,6 +59,16 @@ ActiveRecord::Schema.define(version: 2020_06_26_020602) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "pack_id"
+    t.integer "quantity", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pack_id"], name: "index_carts_on_pack_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
   create_table "packs", force: :cascade do |t|
     t.string "image"
     t.string "product_name"
@@ -66,6 +76,8 @@ ActiveRecord::Schema.define(version: 2020_06_26_020602) do
     t.text "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "price"
+    t.boolean "is_publish", default: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,6 +88,10 @@ ActiveRecord::Schema.define(version: 2020_06_26_020602) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "phone"
+    t.string "address"
+    t.string "post_code"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
