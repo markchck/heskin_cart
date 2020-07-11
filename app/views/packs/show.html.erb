@@ -43,3 +43,14 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  <% if flash[:notice].present? %>
+    aa = confirm( "<%= flash[:notice]%>" )
+    
+    if(aa == true){
+      location.href = "/carts"
+    }
+  <% end %>
+</script>

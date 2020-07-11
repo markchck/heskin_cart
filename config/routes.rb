@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :packs, only: [:index, :show]
 
-  resources :carts, only: [:create, :index]
+  resources :carts, only: [:index, :create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
